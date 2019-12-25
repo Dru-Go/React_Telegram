@@ -6,20 +6,40 @@ import Sessionize from './sessionize.component';
 class Login extends Component {
     constructor(props) {
         super(props);
+        
         this.state = {
-            phoneNo:""
+            Country="",
+            phoneNo:"",
+            isLoggedIn: false, 
+            ErrorMessage: "",
+            AuthToken=""
         };
+        this.accountExists = this.accountExists.bind(this)
     }
     HandleChange = (e) =>
     {
         this.setState({
             phoneNo: e.target.value
         }, () => {
-            
-                
-            console.log(this.state.phoneNo);
+            console.log(this.state.phoneNo); // Promices
         })
     }
+    
+    accountExists(url,phoneno,country) {
+        axios.post("https://someapi:port", {
+          phoneno,
+          country
+        }).then(result => {
+          if (result.status === 200) {
+            this.AuthToken = result.data.token;
+            this.isLoggedIn = true;
+            console.log("Successfully logged in")
+          } else {
+            this.ErrorMessage = result.data;
+          }
+        });
+    }
+
 
     render() {
         return (
