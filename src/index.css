@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@keyframes emptyInput{
+  0%{
+      border: 2px solid light;
+      }
+  18%{
+      border: 2px solid pink;
+      }
+  43%{
+      border: 2px solid red;
+      }
+  68%{
+      border: 2px solid pink;
+      }
+  99%{
+      border: 2px solid light;
+      }
+}
+
+.imp{
+  animation: emptyInput 1.4s infinite 0s linear;
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import './tailwind.css';
 import './App.css'
-import Login from './components/login components/login.component';
+import LoginCommponent from './flux/LoginComponent.js'
 
 function App() {
-    return (
+    return ( 
         <div>
-            <Login/>
+            <LoginCommponent/>
         </div>
     );
 }
